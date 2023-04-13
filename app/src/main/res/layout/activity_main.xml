@@ -5,90 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    
-    <androidx.gridlayout.widget.GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/gridlayout"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon1"
-            android:src="@drawable/balloon"
-            app:layout_row="0"
-            app:layout_column="0"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon2"
-            android:src="@drawable/balloon"
-            app:layout_row="0"
-            app:layout_column="1"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon3"
-            android:src="@drawable/balloon"
-            app:layout_row="0"
-            app:layout_column="2"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon1"
-            android:src="@drawable/balloon"
-            app:layout_row="0"
-            app:layout_column="0"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon4"
-            android:src="@drawable/balloon"
-            app:layout_row="1"
-            app:layout_column="0"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon5"
-            android:src="@drawable/balloon"
-            app:layout_row="1"
-            app:layout_column="1"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon6"
-            android:src="@drawable/balloon"
-            app:layout_row="1"
-            app:layout_column="2"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon7"
-            android:src="@drawable/balloon"
-            app:layout_row="2"
-            app:layout_column="0"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon8"
-            android:src="@drawable/balloon"
-            app:layout_row="2"
-            app:layout_column="1"/>
-        <ImageView
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:id="@+id/balloon9"
-            android:src="@drawable/balloon"
-            app:layout_row="2"
-            app:layout_column="2"/>
-
-
-    </androidx.gridlayout.widget.GridLayout>
 
     <TextView
         android:id="@+id/textViewCountdown"
@@ -103,6 +19,100 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/balloon1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/balloon2"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="1"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/balloon3"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="2"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/balloon1"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="0"
+            app:layout_row="0" />
+
+        <ImageView
+            android:id="@+id/balloon4"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="0"
+            app:layout_row="1" />
+
+        <ImageView
+            android:id="@+id/balloon5"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="1"
+            app:layout_row="1" />
+
+        <ImageView
+            android:id="@+id/balloon6"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="2"
+            app:layout_row="1" />
+
+        <ImageView
+            android:id="@+id/balloon7"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="0"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/balloon8"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="1"
+            app:layout_row="2" />
+
+        <ImageView
+            android:id="@+id/balloon9"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/balloon"
+            app:layout_column="2"
+            app:layout_row="2" />
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
     <TextView
         android:id="@+id/textViewScore"
         android:layout_width="wrap_content"
@@ -110,10 +120,10 @@
         android:layout_marginBottom="30dp"
         android:text="Score: 0"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"/>
-
+        app:layout_constraintStart_toStartOf="parent" />
 
 
     <TextView
@@ -124,6 +134,7 @@
         android:layout_marginBottom="181dp"
         android:text="Remaining Time: 30"
         android:textSize="20sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/textViewCountdown"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
