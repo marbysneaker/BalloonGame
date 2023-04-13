@@ -70,8 +70,12 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFinish() {
+                        Bundle bundle = new Bundle();
                         Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+                        bundle.putInt("Score",score);
+                        intent.putExtras(bundle);
                         startActivity(intent);
+
                     }
                 }.start();
             }
