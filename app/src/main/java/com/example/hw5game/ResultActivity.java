@@ -2,6 +2,7 @@ package com.example.hw5game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -10,9 +11,13 @@ public class ResultActivity extends AppCompatActivity {
     private TextView textViewInfo, textViewMyScore, textViewHighestScore;
     private Button buttonPlayAgain, buttonQuitGame;
 
+    SharedPreferences sharedPreferences;
+
     int score;
 
     int highscore;
+
+    String highestScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,7 +35,18 @@ public class ResultActivity extends AppCompatActivity {
         if(score>highscore){
             highscore = score;
         }
+        textViewHighestScore.setText("Highest Score: " + highscore);
 
 
     }
+
+    public void savedData(){
+        sharedPreferences =getSharedPreferences("saveData",MODE_PRIVATE);
+        highestScore = textViewHighestScore.getText().toString();
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("key score", highestScore);
+    }
+
+
+
 }
