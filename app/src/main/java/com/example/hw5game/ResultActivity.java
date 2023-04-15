@@ -2,6 +2,7 @@ package com.example.hw5game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -54,6 +55,14 @@ public class ResultActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(ResultActivity.this,MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        buttonQuitGame.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                savedData();
+                finishAffinity();
             }
         });
 
