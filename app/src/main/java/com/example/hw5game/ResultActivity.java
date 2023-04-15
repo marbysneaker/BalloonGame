@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 
 public class ResultActivity extends AppCompatActivity {
-    private TextView textViewInfo, textViewMyScore, textViewHighestScore;
+    private TextView textViewInfo, textViewMyScore, textViewHighestScore, textViewGames;
     private Button buttonPlayAgain, buttonQuitGame;
 
     SharedPreferences sharedPreferences;
@@ -23,18 +23,21 @@ public class ResultActivity extends AppCompatActivity {
 
     int highscore;
 
+    int gamesPlayed =0;
+
     String highestScore;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
         getData();
-
+        gamesPlayed++;
         textViewInfo =findViewById(R.id.textViewInfo);
         textViewMyScore =findViewById(R.id.textViewMyScore);
         textViewHighestScore =findViewById(R.id.textViewHighestScore);
         buttonPlayAgain =findViewById(R.id.buttonPlayAgain);
         buttonQuitGame =findViewById(R.id.buttonQuitGame);
+        textViewGames = findViewById(R.id.textViewGames);
 
         Bundle bundle = getIntent().getExtras();
         score = bundle.getInt("Score");
@@ -43,7 +46,7 @@ public class ResultActivity extends AppCompatActivity {
             highscore = score;
         }
         textViewHighestScore.setText("Highest Score: " + highscore);
-
+        textViewGames.setText("Games Played: "+ gamesPlayed);
         savedData();
 
         buttonPlayAgain.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +63,7 @@ public class ResultActivity extends AppCompatActivity {
     public void getData(){
         sharedPreferences = getSharedPreferences("saveData",MODE_PRIVATE);
         highscore = sharedPreferences.getInt("highestScore",0);
+        gamesPlayed = sharedPreferences.getInt("gamesPlayed",0);
     }
     protected void onPause(){
         savedData();
@@ -71,6 +75,7 @@ public class ResultActivity extends AppCompatActivity {
 //        highestScore = textViewHighestScore.getText().toString();
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putInt("highestScore",highscore);
+        editor.putInt("gamesPlayed", gamesPlayed);
         editor.commit();
     }
 

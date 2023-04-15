@@ -12,10 +12,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="SCORES"
-        android:textStyle="bold"
-        android:textColor="@color/teal_200"
         android:textAlignment="center"
+        android:textColor="@color/teal_200"
         android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -46,7 +46,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewInfo"
+        app:layout_constraintTop_toBottomOf="@+id/textViewGames"
         app:layout_constraintVertical_bias="0.5" />
 
     <Button
@@ -72,11 +72,25 @@
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
 
-        android:text="Play Again"
         android:backgroundTint="@color/teal_700"
+        android:text="Play Again"
         android:textAllCaps="false"
         app:layout_constraintBottom_toTopOf="@+id/buttonQuitGame"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewGames"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Games Played: 30"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/textViewMyScore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewInfo"
+        app:layout_constraintVertical_bias="0.5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 balloonsControl();
 
-                new CountDownTimer(10000, 1000) {
+                new CountDownTimer(15000, 1000) {
                     @Override
                     public void onTick(long l) {
                         textViewTime.setText("Remaining time:"+String.valueOf(l/1000));
