@@ -24,6 +24,7 @@ public class ResultActivity extends AppCompatActivity {
 
     int highscore;
 
+    int player1, player2;
     int gamesPlayed =0;
 
     String highestScore;
@@ -40,9 +41,13 @@ public class ResultActivity extends AppCompatActivity {
         buttonQuitGame =findViewById(R.id.buttonQuitGame);
         textViewGames = findViewById(R.id.textViewGames);
 
+
         Bundle bundle = getIntent().getExtras();
         score = bundle.getInt("Score");
-        textViewMyScore.setText("Score: " + score);
+        player1 = bundle.getInt("Player1");
+        player2 = bundle.getInt("Player2");
+
+        textViewMyScore.setText("Player1: " + player1 + "\nPlayer2: "+ player2);
         if(score>highscore){
             highscore = score;
         }

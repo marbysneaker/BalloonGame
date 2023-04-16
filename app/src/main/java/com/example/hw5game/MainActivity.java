@@ -16,10 +16,12 @@ import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView textViewTime, textViewCountDown, textViewScore;
+    private TextView textViewTime, textViewCountDown, textViewScore, textViewPlayer;
     private ImageView balloon1,balloon2,balloon3,balloon4,balloon5,balloon6,balloon7,balloon8,balloon9;
     private GridLayout gridLayout;
     int score = 0;
+    int player1 =0;
+    int player2=0;
 
     Runnable runnable;
     Handler handler;
@@ -48,11 +50,13 @@ public class MainActivity extends AppCompatActivity {
         balloon8 = findViewById(R.id.balloon8);
         balloon9 = findViewById(R.id.balloon9);
         gridLayout = findViewById(R.id.gridLayout);
+        textViewPlayer = findViewById(R.id.textViewPlayer);
 
         mediaPlayer = MediaPlayer.create(this,R.raw.balloon_sound);
         balloonsArray = new ImageView[] {balloon1,balloon2,balloon3,balloon4,balloon5,balloon6,balloon7,balloon8,balloon9};
-
+        textViewPlayer.setText("Player 1");
         new CountDownTimer(5000, 1000) {
+
             @Override
             public void onTick(long l) {
                 textViewCountDown.setText(String.valueOf(l/1000));
@@ -62,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
             public void onFinish() {
                 balloonsControl();
 
-                new CountDownTimer(15000, 1000) {
+                new CountDownTimer(10000, 1000) {
                     @Override
                     public void onTick(long l) {
                         textViewTime.setText("Remaining time:"+String.valueOf(l/1000));
@@ -70,16 +74,69 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFinish() {
-                        Bundle bundle = new Bundle();
-                        Intent intent = new Intent(MainActivity.this,ResultActivity.class);
-                        bundle.putInt("Score",score);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
+//                        Bundle bundle = new Bundle();
+//                        Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+//                        bundle.putInt("Score",score);
+//                        intent.putExtras(bundle);
+//                        startActivity(intent);
+                        textViewPlayer.setText("Player 2");
+                        player1 = score;
+                        score = 0;
+                        for(ImageView balloon: balloonsArray){
+                            balloon.setVisibility(View.INVISIBLE);
+//                            balloon.setImageDrawable(null);
+
+                        }
+                        balloon1.setVisibility(View.INVISIBLE);
+                        balloon2.setVisibility(View.INVISIBLE);
+                        balloon3.setVisibility(View.INVISIBLE);
+                        balloon4.setVisibility(View.INVISIBLE);
+
+
+                        textViewCountDown.setVisibility(View.VISIBLE);
+                        textViewTime.setVisibility(View.INVISIBLE);
+                        textViewScore.setVisibility(View.INVISIBLE);
+                        gridLayout.setVisibility(View.INVISIBLE);
+
+                        new CountDownTimer(5000, 1000) {
+
+
+                            @Override
+                            public void onTick(long l) {
+                                textViewCountDown.setText(String.valueOf(l/1000));
+                            }
+
+                            @Override
+                            public void onFinish() {
+                                balloonsControl();
+
+                                new CountDownTimer(10000, 1000) {
+                                    @Override
+                                    public void onTick(long l) {
+                                        textViewTime.setText("Remaining time:"+String.valueOf(l/1000));
+                                    }
+
+                                    @Override
+                                    public void onFinish() {
+                                        player2=score;
+                                        Bundle bundle = new Bundle();
+                                        Intent intent = new Intent(MainActivity.this,ResultActivity.class);
+                                        bundle.putInt("Score",score);
+                                        bundle.putInt("Player1",player1);
+                                        bundle.putInt("Player2",player2);
+                                        intent.putExtras(bundle);
+                                        startActivity(intent);
+
+                                    }
+                                }.start();
+                            }
+                        }.start();
 
                     }
                 }.start();
             }
         }.start();
+
 
     }
 
