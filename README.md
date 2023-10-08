@@ -1,4 +1,3 @@
-# BalloonGame
 
 # Balloon Pop Duel:
 A competitive two-player game developed using Java in Android Studio. In this timed challenge, each player is allotted a specific duration to pop as many balloons as they can.
